@@ -1,0 +1,26 @@
+
+
+  .card {
+    /* width: 25%;           
+   border: 1px solid #EF9A9A;    
+   border-radius: 4px;           
+   overflow: hidden;             
+   margin: 5px;   */
+   width: 350px;
+   border: 1px solid gray;
+   box-shadow: 1px 1px 3px #888;
+   border-top: 10px solid green;
+   min-height: 250px;
+   padding: 10px;
+   margin: 10px;
+ }             
+ 
+
+
+ @media screen and (max-width: 600px) {
+   .column {
+     width: 100%;
+     display: block;
+     margin-bottom: 20px;
+   }
+ }

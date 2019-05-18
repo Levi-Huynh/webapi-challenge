@@ -16,6 +16,8 @@ Go code!
 
 const server = require('./server.js');
 
+const port = process.env.PORT || 3500;
+
 server.listen(3500, () => {
     console.log('\n*** Server Running on http://localhost:3500 ***\n');
 });

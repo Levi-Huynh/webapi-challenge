@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "Web API Challenge",
   "main": "index.js",
-  "scripts": {    "start": "node index.js",
-    "server": "nodemon index.js"},
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "heroku-postbuild": "cd reactclient && yarn && yarn run build"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/Sprint-Challenge-Node-Express.git"
@@ -20,6 +23,7 @@
   },
   "homepage": "https://github.com/LambdaSchool/Sprint-Challenge-Node-Express#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.0",
     "helmet": "^3.16.0",
     "knex": "^0.16.5",

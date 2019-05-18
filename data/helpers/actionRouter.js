@@ -51,6 +51,7 @@ catch (error) {
   }
 });
 
+
 router.put('/:id',  async(req, res) => {
     try{
         const action = await Actions.update(req.params.id, req.body);
@@ -69,7 +70,7 @@ router.put('/:id',  async(req, res) => {
       }
 });
 
-
+//{ "project_id": 1, "description":"Add React to the front end", "notes":"Use a method to render react"}
 router.post('/', async (req, res) => {
     try{
         const action = await Actions.insert(req.body);
