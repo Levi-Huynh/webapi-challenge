@@ -1,11 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
+
 const actionRouter = require('./data/helpers/actionRouter.js');
 const projectRouter = require('./data/helpers/projectRouter.js');
 
 
 const server = express();
-const path = require('path');
+
 server.use(express.json());
 server.use(cors());
 server.use(express.static(path.join(__dirname, 'reactclient/build')));
