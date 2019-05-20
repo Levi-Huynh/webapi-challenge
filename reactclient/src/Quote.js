@@ -2,28 +2,41 @@ import React from "react";
 import './quote.css';
 import {Link} from 'react-router-dom';
 
-const Quote = props => {
+class Quote extends Component {
+  constructor(props){
+ super(props);
+
+  
+}
+
+  actionDetail() {
+    this.props.getActions(this.props.match.params.id);
+    this.props.history.push(`/projectdetails/${this.props.quote.id}`)
+  }
+
+  render() {
   return  (
    
-    <Link to={`/projectdetails/${props.quote.id}`}>
-    <div className="card">
+
+    <div onClick={this.actionDetail} className="card">
      
 <div className="card-header"> 
 <h3>
-Project # {props.quote.id} {props.quote.name}
+Project # {this.props.quote.id} {this.props.quote.name}
 </h3>
 </div>
 
     <div className="main-description">
-<p >{props.quote.description}</p>
+<p >{this.props.quote.description}</p>
 
 </div>
 </div>
-</Link>
+
            
                
   
   )
-};
+}
+}
 
 export default Quote;
