@@ -8,8 +8,8 @@ import PostDetails from './PostDetails';
 function App() {
   return (
     <div className="mainbox">
-  <Route path= '/' component={PostsLists}/>
-  <Route path= '/projectdetails/:id' component={PostDetails}/>
+  <Route exact path= '/' component={PostsLists}/>
+  <Route exact path= '/projectdetails/:id' component={PostDetails}/>
     </div>
   );
 }

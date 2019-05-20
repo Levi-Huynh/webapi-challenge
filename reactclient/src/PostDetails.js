@@ -9,10 +9,10 @@ class PostDetails extends Component {
    
     };
   
-    componentDidMount() {
-        //call our action
-        this.props.getActions(this.props.match.params.id);
-      }
+     componentDidMount() {
+         //call our action
+       this.props.getActions(this.props.match.params.id);
+     }
   
     render() {
  console.log("quote props", this.props);

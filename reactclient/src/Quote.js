@@ -8,7 +8,11 @@ const Quote = props => {
     <Link to={`/projectdetails/${props.quote.id}`}>
     <div className="card">
      
-<h3 className="card-header"> {props.quote.name}</h3>
+<div className="card-header"> 
+<h3>
+Project # {props.quote.id} {props.quote.name}
+</h3>
+</div>
 
     <div className="main-description">
 <p >{props.quote.description}</p>
