@@ -4,11 +4,13 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 import PostsLists from './PostsList';
 import PostDetails from './PostDetails';
+import Nav from './Nav';
 
 function App() {
   return (
     <div className="mainbox">
-  <Route exact path= '/' component={PostsLists}/>
+      <Route path='/' component={Nav}/>
+  <Route  path= '/' component={PostsLists}/>
   <Route exact path= '/projectdetails/:id' component={PostDetails}/>
     </div>
   );

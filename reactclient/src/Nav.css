@@ -1,0 +1,30 @@
+.wrapper{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    /* margin-top: 50px; */
+    width: 100%;
+    z-index: 2;
+    height: 200px;
+    color: grey;
+
+    /* border: 1px solid lightgrey; */
+    /* background: lightpink */
+}
+
+.icon{
+    color: grey;
+    text-decoration: none;
+}
+
+.NavL{ 
+    text-decoration: none;
+    color: grey;
+  
+}
+
+.NavL:hover{
+    /* color: grey; */
+}

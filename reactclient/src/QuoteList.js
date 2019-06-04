@@ -5,11 +5,13 @@ import Quote from './Quote';
 
 const QuoteList = props => {
   if(!props.quotes){return <h1>Loading</h1>}
+
   return (
-     
+    
 <div>
 
       {props.quotes.map(quote => {
+          console.log(props.quotes);
         return <Quote key={quote.name} quote={quote} />;
       })}
 
