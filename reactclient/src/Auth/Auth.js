@@ -16,7 +16,7 @@ export default class Auth {
     clientID: 'owNQBAlvCFqaOBIzQIHmciIvW2EYuBFn',
               
     
-    redirectUri: 'http://localhost:3000/callback',
+    redirectUri: 'https://project-task-planner.herokuapp.com/callback',
     responseType: 'token id_token',
     scope: 'openid'
   });
