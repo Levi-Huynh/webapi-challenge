@@ -72,10 +72,10 @@ export default class Auth {
     this.idToken = authResult.idToken;
     this.expiresAt = expiresAt;
 
-    localStorage.setItem("accessToken", authResult.accessToken);
-    localStorage.setItem("idToken", authResult.idToken);
-    localStorage.setItem("expiresAt", (new Date().getTime() / 1000) + authResult.expiresIn);
-    localStorage.setItem("isLoggedIn", true);
+    // localStorage.setItem("accessToken", authResult.accessToken);
+    // localStorage.setItem("idToken", authResult.idToken);
+    // localStorage.setItem("expiresAt", (new Date().getTime() / 1000) + authResult.expiresIn);
+    // localStorage.setItem("isLoggedIn", true);
 
     // navigate to the home route
     history.replace('https://project-task-planner.herokuapp.com');
