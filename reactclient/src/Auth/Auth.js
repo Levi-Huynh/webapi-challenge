@@ -7,10 +7,19 @@ export default class Auth {
   accessToken;
   idToken;
   expiresAt;
-
+  userProfile;
   // ...
 
   constructor() {
+    if (localStorage.getItem("accessToken") && localStorage.getItem("idToken") && localStorage.getItem("expiresAt")) {
+        console.log("Auth.js.constructor() IF - Data found in the localStorage");
+        this.accessToken = localStorage.getItem("accessToken");
+        this.idToken = localStorage.getItem("idToken");
+        this.expiresAt = localStorage.getItem("expiresAt");
+      }
+      else {
+        console.log("Auth.js.constructor() ELSE - No data found in the localstorage ELSE");
+      }
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
@@ -18,6 +27,7 @@ export default class Auth {
     this.getAccessToken = this.getAccessToken.bind(this);
     this.getIdToken = this.getIdToken.bind(this);
     this.renewSession = this.renewSession.bind(this);
+    this.getProfile = this.getProfile.bind(this);
   }
 
   auth0 = new auth0.WebAuth({
@@ -37,7 +47,7 @@ export default class Auth {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
       } else if (err) {
-        history.replace('/https://project-task-planner.herokuapp.com/login');
+        history.replace('https://project-task-planner.herokuapp.com/login');
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
@@ -62,8 +72,13 @@ export default class Auth {
     this.idToken = authResult.idToken;
     this.expiresAt = expiresAt;
 
+    localStorage.setItem("accessToken", authResult.accessToken);
+    localStorage.setItem("idToken", authResult.idToken);
+    localStorage.setItem("expiresAt", (new Date().getTime() / 1000) + authResult.expiresIn);
+    localStorage.setItem("isLoggedIn", true);
+
     // navigate to the home route
-    history.replace('/https://project-task-planner.herokuapp.com');
+    history.replace('https://project-task-planner.herokuapp.com');
   }
 
   renewSession() {
