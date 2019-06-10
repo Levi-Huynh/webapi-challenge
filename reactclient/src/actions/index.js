@@ -24,7 +24,7 @@ export const FETCH_ACTION_FAILURE = 'FETCH_ACTIONS_FAILURE';
 export const getActions = (id) => dispatch => {
   dispatch({ type: FETCH_ACTION_START });
   return axios
-     .get(`https://project-task-planner.herokuapp.com/api/project/${id}/action`)
+    .get(`https://project-task-planner.herokuapp.com/api/project/${id}/action`)
     //.get(`http://localhost:3500/api/project/${id}/action`)
     .then(res => {
         console.log("get", res.data);
