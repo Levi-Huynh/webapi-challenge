@@ -14,7 +14,8 @@ export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: 'dev2911.auth0.com',
     clientID: 'owNQBAlvCFqaOBIzQIHmciIvW2EYuBFn',
-    redirectUri: 'https://project-task-planner.herokuapp.com',
+              
+    redirectUri: 'https://project-task-planner.herokuapp.com/home',
     responseType: 'token id_token',
     scope: 'openid'
   });
