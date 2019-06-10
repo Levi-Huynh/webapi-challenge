@@ -7,8 +7,17 @@ export default class Auth {
   accessToken;
   idToken;
   expiresAt;
-  userProfile;
+
   // ...
+
+
+  auth0 = new auth0.WebAuth({
+    domain: 'dev2911.auth0.com',
+    clientID: 'owNQBAlvCFqaOBIzQIHmciIvW2EYuBFn',
+    redirectUri: 'https://project-task-planner.herokuapp.com',
+    responseType: 'token id_token',
+    scope: 'openid'
+  });
 
   constructor() {
     if (localStorage.getItem("accessToken") && localStorage.getItem("idToken") && localStorage.getItem("expiresAt")) {
@@ -20,23 +29,15 @@ export default class Auth {
       else {
         console.log("Auth.js.constructor() ELSE - No data found in the localstorage ELSE");
       }
-    this.login = this.login.bind(this);
-    this.logout = this.logout.bind(this);
-    this.handleAuthentication = this.handleAuthentication.bind(this);
-    this.isAuthenticated = this.isAuthenticated.bind(this);
-    this.getAccessToken = this.getAccessToken.bind(this);
-    this.getIdToken = this.getIdToken.bind(this);
-    this.renewSession = this.renewSession.bind(this);
+      this.login = this.login.bind(this);
+      this.logout = this.logout.bind(this);
+      this.handleAuthentication = this.handleAuthentication.bind(this);
+      this.isAuthenticated = this.isAuthenticated.bind(this);
+      this.getAccessToken = this.getAccessToken.bind(this);
+      this.getIdToken = this.getIdToken.bind(this);
+      this.renewSession = this.renewSession.bind(this);
     
   }
-
-  auth0 = new auth0.WebAuth({
-    domain: 'dev2911.auth0.com',
-    clientID: 'owNQBAlvCFqaOBIzQIHmciIvW2EYuBFn',
-    redirectUri: 'https://project-task-planner.herokuapp.com',
-    responseType: 'token id_token',
-    scope: 'openid'
-  });
 
   login() {
     this.auth0.authorize();
@@ -47,12 +48,13 @@ export default class Auth {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
       } else if (err) {
-        history.replace('https://project-task-planner.herokuapp.com/login');
+        history.replace('/home');
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
     });
   }
+
 
   getAccessToken() {
     return this.accessToken;
@@ -79,7 +81,7 @@ export default class Auth {
     // localStorage.setItem("isLoggedIn", true);
 
     // navigate to the home route
-    history.replace('https://project-task-planner.herokuapp.com');
+    history.replace('/home');
   }
 
   renewSession() {
@@ -108,7 +110,7 @@ export default class Auth {
     });
 
     // navigate to the home route
-    history.replace('/');
+    history.replace('/home');
   }
 
   isAuthenticated() {

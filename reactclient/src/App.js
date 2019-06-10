@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 import PostsLists from './PostsList';
 import PostDetails from './PostDetails';
-// import Nav from './Nav';
+ import Nav from './Nav';
 import Login from './Auth/login';
 import Auth from './Auth/Auth.js';
 import { Navbar, Button } from 'react-bootstrap';
@@ -16,6 +16,7 @@ auth.login();
 
 
 class App extends Component {
+
   goTo(route) {
     this.props.history.replace(`/${route}`)
   }
@@ -57,6 +58,7 @@ class App extends Component {
             {
               !isAuthenticated() && (
                   <Button
+                    id="qsLoginBtn"
                     bsStyle="primary"
                     className="btn-margin"
                     onClick={this.login.bind(this)}
@@ -68,6 +70,7 @@ class App extends Component {
             {
               isAuthenticated() && (
                   <Button
+                    id="qsLogoutBtn"
                     bsStyle="primary"
                     className="btn-margin"
                     onClick={this.logout.bind(this)}
@@ -79,11 +82,16 @@ class App extends Component {
           </Navbar.Header>
         </Navbar>
       </div>
+
          <div className="mainbox">
          {/* <Route path='/' component={Nav}/> */}
-          <Route exact path='/login' component={Login}/>  
+          {/* <Route exact path='/login' component={Login}/>  
      <Route  path= '/' component={PostsLists}/>
-     <Route exact path= '/projectdetails/:id' component={PostDetails}/>
+     <Route exact path= '/projectdetails/:id' component={PostDetails}/> */}
+     <Nav/>
+     <PostsLists/>
+
+
        </div>
        </>
     );
