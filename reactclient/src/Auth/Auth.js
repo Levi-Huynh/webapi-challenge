@@ -63,7 +63,7 @@ export default class Auth {
     this.expiresAt = expiresAt;
 
     // navigate to the home route
-    history.replace('/https://project-task-planner.herokuapp.com/login');
+    history.replace('/https://project-task-planner.herokuapp.com');
   }
 
   renewSession() {
