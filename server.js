@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const server = express();
+server.use(express.json());
+server.use(cors());
 
 const actionRouter = require('./data/helpers/actionRouter.js');
 const projectRouter = require('./data/helpers/projectRouter.js');
@@ -13,10 +16,9 @@ var session = require('express-session');
 var passport = require('passport');
 var Auth0Strategy = require('passport-auth0');
 
-const server = express();
 
-server.use(express.json());
-server.use(cors());
+
+
 
 
 
