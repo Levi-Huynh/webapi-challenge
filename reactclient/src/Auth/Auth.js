@@ -16,7 +16,7 @@ export default class Auth {
     clientID: 'owNQBAlvCFqaOBIzQIHmciIvW2EYuBFn',
               
     
-    redirectUri: 'https://project-task-planner.herokuapp.com/callback',
+    redirectUri: 'https://project-task-planner.herokuapp.com',
     responseType: 'token id_token',
     scope: 'openid'
   });
@@ -50,7 +50,7 @@ export default class Auth {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
       } else if (err) {
-        history.replace('/');
+        history.replace('/home');
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
@@ -83,7 +83,7 @@ export default class Auth {
     localStorage.setItem("isLoggedIn", true);
 
     // navigate to the home route
-    history.replace('/');
+    history.replace('/home');
   }
 
   renewSession() {
@@ -112,7 +112,7 @@ export default class Auth {
     });
 
     // navigate to the home route
-    history.replace('/');
+    history.replace('/home');
   }
 
   isAuthenticated() {
