@@ -47,7 +47,7 @@ export default class Auth {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
       } else if (err) {
-        history.replace('/https://project-task-planner.herokuapp.com/login');
+        history.replace('/login');
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
@@ -78,7 +78,7 @@ export default class Auth {
     localStorage.setItem("isLoggedIn", true);
 
     // navigate to the home route
-    history.replace('/https://project-task-planner.herokuapp.com');
+    history.replace('/');
   }
 
   renewSession() {
