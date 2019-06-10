@@ -23,7 +23,7 @@ export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: 'dev2911.auth0.com',
     clientID: 'owNQBAlvCFqaOBIzQIHmciIvW2EYuBFn',
-    redirectUri: 'http://localhost:3000/callback',
+    redirectUri: 'https://project-task-planner.herokuapp.com',
     responseType: 'token id_token',
     scope: 'openid'
   });
