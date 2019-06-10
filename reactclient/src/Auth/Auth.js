@@ -27,7 +27,7 @@ export default class Auth {
     this.getAccessToken = this.getAccessToken.bind(this);
     this.getIdToken = this.getIdToken.bind(this);
     this.renewSession = this.renewSession.bind(this);
-    this.getProfile = this.getProfile.bind(this);
+    
   }
 
   auth0 = new auth0.WebAuth({
