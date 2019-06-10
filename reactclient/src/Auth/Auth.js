@@ -47,7 +47,7 @@ export default class Auth {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
       } else if (err) {
-        history.replace('https://project-task-planner.herokuapp.com/login');
+        history.replace('/login');
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
@@ -72,13 +72,13 @@ export default class Auth {
     this.idToken = authResult.idToken;
     this.expiresAt = expiresAt;
 
-    // localStorage.setItem("accessToken", authResult.accessToken);
-    // localStorage.setItem("idToken", authResult.idToken);
-    // localStorage.setItem("expiresAt", (new Date().getTime() / 1000) + authResult.expiresIn);
-    // localStorage.setItem("isLoggedIn", true);
+    localStorage.setItem("accessToken", authResult.accessToken);
+    localStorage.setItem("idToken", authResult.idToken);
+    localStorage.setItem("expiresAt", (new Date().getTime() / 1000) + authResult.expiresIn);
+    localStorage.setItem("isLoggedIn", true);
 
     // navigate to the home route
-    history.replace('https://project-task-planner.herokuapp.com');
+    history.replace('/https://project-task-planner.herokuapp.com');
   }
 
   renewSession() {
