@@ -27,6 +27,7 @@
     "auth0-lock": "^11.16.2",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
+    "ejs": "^2.6.1",
     "express": "^4.17.0",
     "express-jwt": "^5.3.1",
     "express-session": "^1.16.1",

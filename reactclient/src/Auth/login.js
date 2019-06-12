@@ -1,12 +1,17 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
+import Lock from './Lock';
+import isAuthenticated from './isAuthenticated';
 
-function Login() {
-    return (
-        <>
-        <h3>Login Page</h3>
-        </>
-    )
-}
-
+const Login = (props) => (
+  isAuthenticated() ? (
+    <Redirect to={{
+      pathname: '/projects',
+      state: { from: props.location }
+    }} />
+  ) : (
+    <Lock location={props.location} />
+  )
+)
 
 export default Login;

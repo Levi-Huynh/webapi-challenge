@@ -16,6 +16,7 @@ class PostsLists extends React.Component {
       this.props.getData();
     }
   
+  
     render() {
     
    
@@ -29,6 +30,8 @@ class PostsLists extends React.Component {
 
           <QuoteList quotes={this.props.quotes} />
           {/* <UpdateFriendContainer friends={this.props.friends}/> */}
+       
+    
         </div>
      
       );

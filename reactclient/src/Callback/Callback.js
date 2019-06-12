@@ -1,27 +1,18 @@
-import React, { Component } from 'react';
-import loading from './loading.svg';
+import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
+import auth0Client from '../Auth/Auth';
 
 class Callback extends Component {
-  render() {
-    const style = {
-      position: 'absolute',
-      display: 'flex',
-      justifyContent: 'center',
-      height: '100vh',
-      width: '100vw',
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0,
-      backgroundColor: 'white',
-    }
+  async componentDidMount() {
+    await auth0Client.handleAuthentication();
+    this.props.history.replace('/');
+  }
 
+  render() {
     return (
-      <div style={style}>
-        <img src={loading} alt="loading"/>
-      </div>
+      <p>Loading profile...</p>
     );
   }
 }
 
-export default Callback;
+export default withRouter(Callback);
